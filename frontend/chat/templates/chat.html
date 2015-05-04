@@ -1,0 +1,20 @@
+<div class="{{chat.class}}">
+    <form role="form" novalidate ng-submit="chat.enviarMensagem()">
+        <div class="form-group text-center">
+            <span class="alert alert-success" role="alert" ng-show="chat.isConectado">Conectado</span>
+            <span class="alert alert-danger" role="alert" ng-show="!chat.isConectado">Desconectado</span>
+        </div>
+        <div class="form-group">
+            <div id="caixaMensagens" style="overflow: auto">
+                <p ng-repeat="mensagem in chat.logMensagem">
+                    <strong>{{mensagem.autor}}></strong>
+                    {{mensagem.texto}}
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <textarea id="caixa" class="form-control" rows="3" ng-model="chat.mensagem.texto"></textarea>
+        </div>
+        <input type="submit" id="enviar" class="btn btn-primary" value="Enviar" />
+    </form>
+</div>
