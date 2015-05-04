@@ -14,7 +14,7 @@ use WSCon\App\ChatServer;
                 new ChatServer()
             )
         ),
-        2828
+        8888
     );
 
 $server->run();
