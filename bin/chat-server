@@ -17,4 +17,6 @@ use WSCon\App\ChatServer;
         8888
     );
 
+echo "Escutando: ";
+echo "http://localhost:8888".PHP_EOL;
 $server->run();

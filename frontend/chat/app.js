@@ -17,7 +17,8 @@
                 this.ws.ref = this;
                 
                 $http.get('http://localhost:8080').success(function(r){console.log('deu certo');});
-                                
+                
+                
                 this.ws.onopen = function(erro) {
                     this.ref.isConectado = true;
                     this.$scope.$apply();
@@ -46,6 +47,9 @@
                 this.addMensagemNoLog = function (mensagem){
                     if (this.isConectado) {
                         this.logMensagem.push(mensagem);
+                        $scope.$apply();
+                        var height = angular.element("#caixaMensagens").get(0).scrollHeight;
+                        angular.element("#caixaMensagens").get(0).scrollTop =  height;
                     }
                 };
             }], 

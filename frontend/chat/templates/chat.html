@@ -5,7 +5,10 @@
             <span class="alert alert-danger" role="alert" ng-show="!chat.isConectado">Desconectado</span>
         </div>
         <div class="form-group">
-            <div id="caixaMensagens" style="overflow: auto">
+            
+        </div>
+        <div class="form-group">
+            <div id="caixaMensagens" style="overflow: auto; max-height: 100px; min-height: 100px">
                 <p ng-repeat="mensagem in chat.logMensagem">
                     <strong>{{mensagem.autor}}></strong>
                     {{mensagem.texto}}

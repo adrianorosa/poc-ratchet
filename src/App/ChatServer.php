@@ -15,7 +15,7 @@ class ChatServer implements MessageComponentInterface {
     public function onOpen(ConnectionInterface $conn) {
         // Store the new connection to send messages to later
         $this->clients->attach($conn);
-
+        
         echo "Nova Conexão! ({$conn->resourceId})" . PHP_EOL;
     }
 
@@ -27,9 +27,10 @@ class ChatServer implements MessageComponentInterface {
         foreach ($this->clients as $client) {
             //if ($from !== $client) {
                 // The sender is not the receiver, send to each client connected
-                $client->send($msg);
+                $client->send($from->resourceId . ": " . $msg);
             //}
         }
+        var_dump($from);
     }
 
     public function onClose(ConnectionInterface $conn) {
